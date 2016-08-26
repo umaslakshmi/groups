@@ -1,0 +1,31 @@
+Models:
+
+User = {
+	first_name:string
+	last_name:string
+	email:string
+	password:digest
+
+	has_many :groups
+	has_many :joined_groups, through: :members, source: :group
+}
+
+Group = {
+	name:string
+	description:text
+	user:references
+
+	belongs_to :user
+	has_many :joined_members, through: :members, source: :user
+}
+
+Member = {
+	user:references
+	group:references
+}
+
+-------------------------------------------------------------------------------------------------------
+
+To-Do:
+-logout
+-require_current_user
