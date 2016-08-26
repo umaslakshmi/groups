@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 	before_action :require_login
-	before_action :require_correct_user, only:[:create, :destroy]
+	# before_action :require_correct_user, only:[:create, :destroy]
 
 	def index
 		@user = User.find(session[:id])
